@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+{{ super() }}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="page-header">
+		<ul>
+			<LI><h1> Hello {{ name | capitalize }} </h1> </LI>
+			<li> <p> Your Student number is {{ std_number }}</p></li>
+			<li> <p> And You are offering {{ Course | capitalize }} </p></li>
+		</ul>
+		<p>last Updated!.. {{ moment(current_time).fromNow(refresh=True) }}</p> 
+	</div>
+	{{ wtf.quick_form(form) }}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
